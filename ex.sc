@@ -2,7 +2,7 @@ s.boot;
 
 s.waitForBoot({
 	~mainCaller = ("./DX7.scd").loadRelative.wrapAt(-1);
-	MIDIClient.init;
+	MIDIClient.init(1, 1);
 	~preset = 0;
 
 	// https://gist.github.com/umbrellaprocess/973d2aa16e95bf329ee2
