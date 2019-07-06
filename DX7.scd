@@ -669,14 +669,14 @@ f = { arg x, y ,z; //y value, z cc no
 };
 
 //Creating a patch array from .afx file to prevent "unsaved file" error.
-r = File("DX7.afx".resolveRelative,"r");
+r = File("alt.afx".resolveRelative,"r");
 16384.do({arg item;
 	dx7patches[item] = r.getLine;
 });
 
 mainCaller = { arg note, vel, preset;
 	if(vel > 0,{
-		var g = dx7patches[preset%16384];
+		var g = dx7patches[preset%1]; //16384
 		145.do({arg item;
 			var k = (g.at((item*2)) ++ g.at((item*2) + 1)).asInt;
 			f.value(cirklonCCparse[item][0],cirklonCCparse[item][1],k);
